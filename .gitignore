@@ -1,0 +1,5 @@
+node_modules 
+./bin/node_modules
+./static/dynamic/
+.DS_Store
+**/.DS_Store
