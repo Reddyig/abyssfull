@@ -201,9 +201,10 @@ async function runService(URL) {
         } else {
           title.textContent = iframe.contentDocument.title;
         }
-      img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
-      document.getElementById("adrbar").placeholder = title.textContent;
-      ts.getActiveTab().getConnectedElement().querySelector("#original").parentNode.appendChild(title);
+        if (iframe.contentDocument.querySelector('link[rel="icon"]')?.href) {
+          img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
+      }
+              ts.getActiveTab().getConnectedElement().querySelector("#original").parentNode.appendChild(title);
     };
     document.getElementById("adrbar").value = "";
   } else if (
@@ -213,8 +214,9 @@ async function runService(URL) {
     ts.getActiveTab().findFirstIFrame().src = "/service/route?url=" + encodeURIComponent(url);
     document.getElementById("adrbar").value = "";
     var iframe = ts.getActiveTab().getTabElement().querySelector("#browseriframe");
-    img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
-    // this works just fine ....  // not for google searching it wont hmm let me see  it works just fine
+    if (iframe.contentDocument.querySelector('link[rel="icon"]')?.href) {
+      img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
+    }
     // iframe.contentDocument.querySelector('link[rel="icon"]').href; 
     // it w
   } else {
@@ -303,8 +305,9 @@ function back() {
         // title.textContent = truncatedTitle;
         title.textContent = iframe.contentDocument.title;
         ts.getActiveTab().getConnectedElement().querySelector("#original").parentNode.appendChild(title);
-        img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
-        // img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentWindow.location.href + "&size=64";
+        if (iframe.contentDocument.querySelector('link[rel="icon"]')?.href) {
+          img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
+        }        // img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentWindow.location.href + "&size=64";
         // iframe.contentDocument.querySelector('link[rel="icon"]').href;
       }
       iframe.onload = changeTitle;
@@ -328,8 +331,9 @@ function forwards() {
         // title.textContent = truncatedTitle;
         title.textContent = iframe.contentDocument.title;
         ts.getActiveTab().getConnectedElement().querySelector("#original").parentNode.appendChild(title);
-        img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
-        // img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentWindow.location.href + "&size=64";
+        if (iframe.contentDocument.querySelector('link[rel="icon"]')?.href) {
+          img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentDocument.querySelector('link[rel="icon"]').href + "&size=64";
+        }        // img.src = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + iframe.contentWindow.location.href + "&size=64";
         // iframe.contentDocument.querySelector('link[rel="icon"]').href;
       }
       iframe.onload = changeTitle;
